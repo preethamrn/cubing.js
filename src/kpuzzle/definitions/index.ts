@@ -9,14 +9,14 @@ export const Cube222: KPuzzleDefinition = cube222JSON;
 
 // import { readFileSync } from "fs";
 // const cube222SVG = readFileSync(__dirname + "/svg/2x2x2.kpuzzle.svg", "utf8");
-import cube222SVG from "bundle-text:./svg/2x2x2.kpuzzle.svg";
+import cube222SVG from "./svg/2x2x2.kpuzzle.svg";
 Cube222.svg = cube222SVG;
 // Cube222.svg = svgJSON["2x2x2.kpuzzle.svg"];
 
 // import cube333JSON from "./3x3x3.kpuzzle.json";
 export const Cube333: KPuzzleDefinition = {} as any;
 // const cube333SVG = readFileSync(__dirname + "/svg/3x3x3.kpuzzle.svg", "utf8");
-import cube333SVG from "bundle-text:./svg/3x3x3.kpuzzle.svg";
+import cube333SVG from "./svg/3x3x3.kpuzzle.svg";
 Cube333.svg = cube333SVG;
 // Cube333.svg = svgJSON["3x3x3.kpuzzle.svg"];
 
