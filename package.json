@@ -9,6 +9,7 @@
   "license": "GPL-3.0-or-later",
   "repository": "github:cubing/cubing.js",
   "dependencies": {
+    "@parcel/transformer-raw": "^2.0.0-alpha.3",
     "@types/resize-observer-browser": "^0.1.3",
     "@types/web-bluetooth": "0.0.4",
     "parcel": "^2.0.0-nightly.415",
@@ -17,7 +18,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@babel/plugin-proposal-private-methods": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
     "@rollup/plugin-json": "^4.1.0",
     "@types/jest": "^24.9.1",
     "@typescript-eslint/eslint-plugin": "^4.1.0",
@@ -31,6 +37,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.4.2",
     "jest-raw-loader": "^1.0.1",
+    "parcel-transformer-pegjs": "^1.0.1",
     "pegjs": "^0.11.0-master.f69239d",
     "pegjs-jest": "0.0.2",
     "prettier": "^2.1.1",
@@ -47,8 +54,8 @@
   },
   "scripts": {
     "build": "npx rollup -c",
-    "dev": "npx parcel serve --no-autoinstall app/index.html --port 333 --open --out-dir dist/parcel",
-    "clean": "rm -rf dist .cache .rpt2_cache",
+    "dev": "npx parcel serve --no-autoinstall app/index.html --port 333 --open --dist-dir dist/parcel",
+    "clean": "rm -rf dist .cache .parcel-cache .rpt2_cache",
     "test": "npm run test-jest && npm run lint",
     "test-jest": "npx jest",
     "test-node-require": "node -e \"console.log(require(\\\".\\\"))\"",
@@ -56,9 +63,9 @@
     "setup": "npm install",
     "lint": "npx eslint .",
     "prepack": "npm run clean && npm run build && npm run test-node-require",
-    "parcel-build-for-twizzle-net": "parcel build --no-autoinstall --public-url ./ --out-dir dist/twizzle.net/explore app/twizzle/index.html",
-    "parcel-build-for-vr-cubing-net": "parcel build --no-autoinstall --public-url ./ --out-dir dist/experiments.cubing.net/vr app/vr/index.html",
-    "parcel-build-for-experiments-cubing-net": "parcel build --no-autoinstall --public-url /cubing.js/ --out-dir dist/experiments.cubing.net/cubing.js app/index.html"
+    "parcel-build-for-twizzle-net": "npx parcel build --no-autoinstall --public-url ./ --dist-dir dist/twizzle.net/explore app/twizzle/index.html",
+    "parcel-build-for-vr-cubing-net": "npx parcel build --no-autoinstall --public-url ./ --dist-dir dist/experiments.cubing.net/vr app/vr/index.html",
+    "parcel-build-for-experiments-cubing-net": "npx parcel build --no-autoinstall --public-url /cubing.js/ --dist-dir dist/experiments.cubing.net/cubing.js app/index.html"
   },
   "bin": {
     "puzzle-geometry": "./dist/bin/puzzle-geometry-bin.js"
