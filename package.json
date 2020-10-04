@@ -54,6 +54,7 @@
   },
   "scripts": {
     "build": "npx rollup -c",
+    "build-parcel": "npx parcel build src/cubing/index.ts --dist-dir dist/esm --target module",
     "dev": "npx parcel serve --no-autoinstall app/index.html --port 333 --open --dist-dir dist/parcel",
     "clean": "rm -rf dist .cache .parcel-cache .rpt2_cache",
     "test": "npm run test-jest && npm run lint",
@@ -139,7 +140,7 @@
     "quoteProps": "consistent"
   },
   "targets": {
-    "main": {
+    "module": {
       "isLibrary": true,
       "outputFormat": "esmodule",
       "minify": false
