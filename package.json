@@ -136,5 +136,12 @@
     "trailingComma": "all",
     "tabWidth": 2,
     "quoteProps": "consistent"
+  },
+  "targets": {
+    "main": {
+      "isLibrary": true,
+      "outputFormat": "esmodule",
+      "minify": false
+    }
   }
 }
