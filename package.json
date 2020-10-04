@@ -6,6 +6,7 @@
   "main": "dist/cjs/cubing.js",
   "module": "dist/esm/cubing.js",
   "types": "dist/cjs/src/cubing/index.d.ts",
+  "parcel2-module": "dist/parcel2/cubing.js",
   "license": "GPL-3.0-or-later",
   "repository": "github:cubing/cubing.js",
   "dependencies": {
@@ -54,7 +55,9 @@
   },
   "scripts": {
     "build": "npx rollup -c",
-    "build-parcel": "npx parcel build src/cubing/index.ts --dist-dir dist/esm --target module",
+    "build-parcel2": "npm run build-parcel2-module && npm run build-parcel2-types",
+    "build-parcel2-module": "npx parcel build src/cubing/index.ts --dist-dir dist/esm --target parcel2-module",
+    "build-parcel2-types": "npx parcel build src/cubing/index-parcel2-types.ts --dist-dir dist/esm --target types",
     "dev": "npx parcel serve --no-autoinstall app/index.html --port 333 --open --dist-dir dist/parcel",
     "clean": "rm -rf dist .cache .parcel-cache .rpt2_cache",
     "test": "npm run test-jest && npm run lint",
@@ -141,6 +144,11 @@
   },
   "targets": {
     "module": {
+      "isLibrary": true,
+      "outputFormat": "esmodule",
+      "minify": false
+    },
+    "parcel2-module": {
       "isLibrary": true,
       "outputFormat": "esmodule",
       "minify": false
