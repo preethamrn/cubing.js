@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/resize-observer-browser": "^0.1.3",
     "@types/web-bluetooth": "0.0.4",
+    "parcel": "^2.0.0-nightly.415",
     "regenerator-runtime": "^0.13.7",
     "three": "^0.118.3"
   },
